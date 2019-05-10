@@ -119,14 +119,18 @@ class Index {
         }
 
         $Member = Member::Verify($_data['auth']);
-		
-		/* 註冊會員回應的JSON格式 */
+
+        /**
+        * 註冊會員回應的JSON格式
+        */		
         if ($Member) {
             $Member['booksinfo'] = Db::query("SELECT a.bean,b.*,c.*, CASE WHEN a.bean >= c.c_cost THEN 'can_see' ELSE 'no_see' END issee FROM member a, books b, chapter c WHERE a.email = '{$Member['email']}' AND b.bid='{$_data['bid']}' AND b.bid = c.bid ORDER BY b.bid,c.c_order LIMIT " . (($_data['page'] - 1) * $_data['limit']) . "," . $_data['limit'] . "");
             return json($Member);
         }
-		
-		/* 遊客回應的JSON格式 */
+
+        /**
+        * 遊客回應的JSON格式
+        */		
         $booksinfo = Db::query("SELECT b.*,c.*, CASE WHEN c.c_cost = 0 THEN 'can_see' ELSE 'please_login' END issee FROM books b, chapter c WHERE b.bid = c.bid AND b.bid='{$_data['bid']}' ORDER BY b.bid,c_order LIMIT " . (($_data['page'] - 1) * $_data['limit']) . "," . $_data['limit'] . "");
         return json([
             'email' => null,
