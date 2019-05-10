@@ -48,10 +48,13 @@ V2.2 ---------- 加入收藏夾錯誤的書籍編號、章節編號判斷
 
   http://yourdomain/index.php/Index/Index/Register?email=youremail&password=123456
 
-
+  控制器程序路徑 : application\index\controller\Index.php  class = Register
+  
 2、用戶登陸
 
   http://yourdomain/index.php/Index/Index/Login?email=youremail&password=123456
+
+  控制器程序路徑 : application\index\controller\Index.php  class = Login
 
   用戶註冊登陸設計概念
 
@@ -65,6 +68,8 @@ V2.2 ---------- 加入收藏夾錯誤的書籍編號、章節編號判斷
   auth為登陸後回應給APP的會員驗證加密字串
   參數page與參數limit為APP端傳來分頁信息，可減輕後端資料庫查詢負載。
 
+  控制器程序路徑 : application\index\controller\Index.php  class = Books
+
   書籍列表設計概念
 
   書籍列表無論會員或遊客皆可瀏覽。                                                                  
@@ -76,6 +81,8 @@ V2.2 ---------- 加入收藏夾錯誤的書籍編號、章節編號判斷
   http://yourdomain/index.php/Index/Index/BookView?bid=2&auth=auth&page=1&limit=15                  
   auth為登陸後回應給APP的會員驗證加密字串
   參數page與參數limit為APP端傳來分頁信息，可減輕後端資料庫查詢負載。
+
+  控制器程序路徑 : application\index\controller\Index.php  class = BookView
 
   書籍之章節設計概念
 
@@ -97,10 +104,14 @@ V2.2 ---------- 加入收藏夾錯誤的書籍編號、章節編號判斷
   http://yourdomain/index.php/Index/User/setPayment?auth=auth&amount=50
   auth為登陸後回應給APP的會員驗證加密字串
 
+  控制器程序路徑 : application\index\controller\User.php  class = setPayment
+
   充值紀錄列表
   http://yourdomain/index.php/Index/User/getPaymentList?page=1&limit=2&auth=auth
   auth為登陸後回應給APP的會員驗證加密字串
   參數page與參數limit為APP端傳來分頁信息，可減輕後端資料庫查詢負載。 
+
+  控制器程序路徑 : application\index\controller\User.php  class = getPaymentList
 
   % 事務處理 => 充值至會員虛擬帳戶與充值紀錄寫入包在同一事務處理，避免資料不同步 %  
   
@@ -110,12 +121,15 @@ V2.2 ---------- 加入收藏夾錯誤的書籍編號、章節編號判斷
   http://yourdomain/index.php/Index/User/setCollect?bid=3&cid=18&auth=auth
   auth為登陸後回應給APP的會員驗證加密字串
 
+  控制器程序路徑 : application\index\controller\User.php  class = setCollect
+
   收藏夾列表
   http://yourdomain/index.php/Index/User/getCollectList?page=1&limit=2&auth=auth
   auth為登陸後回應給APP的會員驗證加密字串
   參數page與參數limit為APP端傳來分頁信息，可減輕後端資料庫查詢負載。
 
-
+  控制器程序路徑 : application\index\controller\User.php  class = getCollectList
+  
 ~~~
 
 --------------------------------------------------------------------------------------------------
